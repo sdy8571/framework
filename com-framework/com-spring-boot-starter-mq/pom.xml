@@ -12,7 +12,6 @@
     <artifactId>com-spring-boot-starter-mq</artifactId>
 
     <properties>
-        <redisson.version>3.8.2</redisson.version>
     </properties>
 
     <dependencies>

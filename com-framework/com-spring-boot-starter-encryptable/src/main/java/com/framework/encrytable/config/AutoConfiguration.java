@@ -1,6 +1,7 @@
 package com.framework.encrytable.config;
 
 import cn.hutool.core.io.resource.ResourceUtil;
+import com.framework.encrytable.controller.EncryptableController;
 import com.framework.encrytable.encrypt.ImplEncryptablePropertyFilter;
 import com.framework.encrytable.encrypt.ImplEncryptablePropertyResolver;
 import com.ulisesbocchio.jasyptspringboot.EncryptablePropertyFilter;
@@ -28,5 +29,10 @@ public class AutoConfiguration {
     public EncryptablePropertyResolver encryptablePropertyResolver() {
         String password = ResourceUtil.readUtf8Str("META-INF/key/password.txt");
         return new ImplEncryptablePropertyResolver(password);
+    }
+
+    @Bean(name = "encryptableController")
+    public EncryptableController encryptableController() {
+        return new EncryptableController();
     }
 }

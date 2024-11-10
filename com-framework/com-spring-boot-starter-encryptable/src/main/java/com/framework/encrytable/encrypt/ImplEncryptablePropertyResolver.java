@@ -39,4 +39,12 @@ public class ImplEncryptablePropertyResolver implements EncryptablePropertyResol
         }
         return value;
     }
+
+    public String resolveEncryptValue(String value) {
+        if (StrUtil.isBlank(value)) {
+            return null;
+        }
+        return "Enc(" + encryptor.encrypt(value) + ")";
+    }
+
 }

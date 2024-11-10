@@ -36,7 +36,7 @@ public class KeyEncryptTest {
     }
 
     @Test
-    public void encryptPassword() {
+    public void decryptPassword() {
         String encPassword = ResourceUtil.readUtf8Str("META-INF/key/password.txt");
         String plainPassword = new String(rsa.decrypt(encPassword, KeyType.PublicKey));
         log.info("密码明文:{}", plainPassword);
