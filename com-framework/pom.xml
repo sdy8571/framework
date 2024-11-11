@@ -22,6 +22,7 @@
         <module>com-spring-boot-starter-encryptable</module>
         <module>com-spring-boot-starter-tenant</module>
         <module>com-spring-boot-starter-mq</module>
+        <module>com-spring-boot-starter-rabbitmq</module>
     </modules>
 
 </project>

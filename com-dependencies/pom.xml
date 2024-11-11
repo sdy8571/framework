@@ -98,14 +98,18 @@
                 <artifactId>com-spring-boot-starter-encryptable</artifactId>
                 <version>${revision}</version>
             </dependency>
-
-
-            <!--    java 模块    -->
             <dependency>
                 <groupId>com</groupId>
                 <artifactId>com-spring-boot-starter-mq</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com</groupId>
+                <artifactId>com-spring-boot-starter-rabbitmq</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!--    java 模块    -->
             <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
