@@ -9,6 +9,7 @@ import com.framework.pay.core.client.dto.refund.PayRefundRespDTO;
 import com.framework.pay.core.client.dto.refund.PayRefundUnifiedReqDTO;
 import com.framework.pay.core.client.exception.PayException;
 import com.framework.pay.core.client.util.ValidationUtils;
+import com.framework.pay.core.enums.channel.PayChannelEnum;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
@@ -30,14 +31,20 @@ public abstract class AbstractPayClient<Config extends PayClientConfig> implemen
      */
     @SuppressWarnings("FieldCanBeLocal")
     private final String channelCode;
+
+    /**
+     * 渠道名称
+     */
+    private final String channelName;
     /**
      * 支付配置
      */
     protected Config config;
 
-    public AbstractPayClient(Long channelId, String channelCode, Config config) {
+    public AbstractPayClient(Long channelId, PayChannelEnum channel, Config config) {
         this.channelId = channelId;
-        this.channelCode = channelCode;
+        this.channelCode = channel.getCode();
+        this.channelName = channel.getName();
         this.config = config;
     }
 
@@ -68,6 +75,16 @@ public abstract class AbstractPayClient<Config extends PayClientConfig> implemen
     @Override
     public Long getId() {
         return channelId;
+    }
+
+    @Override
+    public String getChannelCode() {
+        return channelCode;
+    }
+
+    @Override
+    public String getChannelName() {
+        return channelName;
     }
 
     // ============ 支付相关 ==========

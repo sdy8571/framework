@@ -26,6 +26,7 @@ import com.framework.pay.core.client.dto.refund.PayRefundRespDTO;
 import com.framework.pay.core.client.dto.refund.PayRefundUnifiedReqDTO;
 import com.framework.pay.core.client.impl.AbstractPayClient;
 import com.framework.pay.core.client.util.ObjectUtils;
+import com.framework.pay.core.enums.channel.PayChannelEnum;
 import com.framework.pay.core.enums.order.PayOrderStatusRespEnum;
 import lombok.Getter;
 import lombok.SneakyThrows;
@@ -51,8 +52,8 @@ public abstract class AbstractAlipayPayClient extends AbstractPayClient<AlipayPa
     @Getter // 仅用于单测场景
     protected DefaultAlipayClient client;
 
-    public AbstractAlipayPayClient(Long channelId, String channelCode, AlipayPayClientConfig config) {
-        super(channelId, channelCode, config);
+    public AbstractAlipayPayClient(Long channelId, PayChannelEnum channel, AlipayPayClientConfig config) {
+        super(channelId, channel, config);
     }
 
     @Override

@@ -29,7 +29,7 @@ import lombok.extern.slf4j.Slf4j;
 public class WxH5PayClient extends WxPubPayClient {
 
     public WxH5PayClient(Long channelId, WxPayClientConfig config) {
-        super(channelId, PayChannelEnum.WX_H5.getCode(), config);
+        super(channelId, PayChannelEnum.WX_H5, config);
     }
 
     @Override

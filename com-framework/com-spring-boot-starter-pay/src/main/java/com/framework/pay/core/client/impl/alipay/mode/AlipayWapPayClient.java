@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AlipayWapPayClient extends AbstractAlipayPayClient {
 
     public AlipayWapPayClient(Long channelId, AlipayPayClientConfig config) {
-        super(channelId, PayChannelEnum.ALIPAY_WAP.getCode(), config);
+        super(channelId, PayChannelEnum.ALIPAY_WAP, config);
     }
 
     @Override

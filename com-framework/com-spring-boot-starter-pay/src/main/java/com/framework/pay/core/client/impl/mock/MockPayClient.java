@@ -14,7 +14,6 @@ import com.framework.pay.core.enums.refund.PayRefundStatusRespEnum;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  * 模拟支付的 PayClient 实现类
@@ -27,7 +26,7 @@ public class MockPayClient extends AbstractPayClient<NonePayClientConfig> {
     private static final String MOCK_RESP_SUCCESS_DATA = "MOCK_SUCCESS";
 
     public MockPayClient(Long channelId, NonePayClientConfig config) {
-        super(channelId, PayChannelEnum.MOCK.getCode(), config);
+        super(channelId, PayChannelEnum.MOCK, config);
     }
 
     @Override

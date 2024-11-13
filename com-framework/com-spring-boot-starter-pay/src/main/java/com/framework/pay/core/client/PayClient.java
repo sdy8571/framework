@@ -21,6 +21,18 @@ public interface PayClient {
      */
     Long getId();
 
+    /**
+     * 渠道code
+     * @return code
+     */
+    String getChannelCode();
+
+    /**
+     * 渠道名称
+     * @return 名称
+     */
+    String getChannelName();
+
     // ============ 支付相关 ==========
 
     /**

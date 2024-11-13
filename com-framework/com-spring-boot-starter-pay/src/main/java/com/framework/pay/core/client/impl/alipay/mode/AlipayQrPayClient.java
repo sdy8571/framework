@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AlipayQrPayClient extends AbstractAlipayPayClient {
 
     public AlipayQrPayClient(Long channelId, AlipayPayClientConfig config) {
-        super(channelId, PayChannelEnum.ALIPAY_QR.getCode(), config);
+        super(channelId, PayChannelEnum.ALIPAY_QR, config);
     }
 
     @Override

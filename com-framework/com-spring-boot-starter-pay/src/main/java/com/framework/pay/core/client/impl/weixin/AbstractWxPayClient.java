@@ -6,6 +6,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import cn.hutool.core.date.TemporalAccessorUtil;
 import cn.hutool.core.util.StrUtil;
+import com.framework.pay.core.enums.channel.PayChannelEnum;
 import com.github.binarywang.wxpay.bean.notify.WxPayOrderNotifyResult;
 import com.github.binarywang.wxpay.bean.notify.WxPayOrderNotifyV3Result;
 import com.github.binarywang.wxpay.bean.notify.WxPayRefundNotifyResult;
@@ -43,8 +44,8 @@ public abstract class AbstractWxPayClient extends AbstractPayClient<WxPayClientC
 
     protected WxPayService client;
 
-    public AbstractWxPayClient(Long channelId, String channelCode, WxPayClientConfig config) {
-        super(channelId, channelCode, config);
+    public AbstractWxPayClient(Long channelId, PayChannelEnum channel, WxPayClientConfig config) {
+        super(channelId, channel, config);
     }
 
     /**

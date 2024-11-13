@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class WxNativePayClient extends AbstractWxPayClient {
 
     public WxNativePayClient(Long channelId, WxPayClientConfig config) {
-        super(channelId, PayChannelEnum.WX_NATIVE.getCode(), config);
+        super(channelId, PayChannelEnum.WX_NATIVE, config);
     }
 
     @Override

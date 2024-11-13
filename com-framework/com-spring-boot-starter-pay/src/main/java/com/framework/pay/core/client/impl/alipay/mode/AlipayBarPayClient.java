@@ -28,7 +28,7 @@ import java.time.LocalDateTime;
 public class AlipayBarPayClient extends AbstractAlipayPayClient {
 
     public AlipayBarPayClient(Long channelId, AlipayPayClientConfig config) {
-        super(channelId, PayChannelEnum.ALIPAY_BAR.getCode(), config);
+        super(channelId, PayChannelEnum.ALIPAY_BAR, config);
     }
 
     @Override

@@ -26,7 +26,7 @@ import java.util.Objects;
 public class AlipayPcPayClient extends AbstractAlipayPayClient {
 
     public AlipayPcPayClient(Long channelId, AlipayPayClientConfig config) {
-        super(channelId, PayChannelEnum.ALIPAY_PC.getCode(), config);
+        super(channelId, PayChannelEnum.ALIPAY_PC, config);
     }
 
     @Override
