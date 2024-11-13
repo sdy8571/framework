@@ -8,8 +8,8 @@ com-framework   管理框架组件等；
 com-spring-boot-starter-base：包含工具类、统一异常处理、统一返回类型、统一请求日志等；
 com-spring-boot-starter-auth：统一授权处理，当前版本为简版，如需使用，可根据业务自行修改补充；  
 com-spring-boot-starter-sequence：序列管理，需要在数据库添加sequence_config表，执行resources下sql脚本即可；  
-com-spring-boot-starter-mybatis：集成 mybatis-plus 组件；
-com-spring-boot-starter-pay： 对接了微信支付、支付宝支付，如需添加其他支付方式，可自行维护；
+com-spring-boot-starter-mybatis：集成 mybatis-plus 组件；  
+com-spring-boot-starter-pay： 对接了微信支付、支付宝支付，如需添加其他支付方式，可自行维护；  
 com-spring-boot-starter-encryptable：对 yaml 中密码进行加解密处理，以防密码泄露；  
 com-spring-boot-starter-tenant： 租户系统，暂未使用；  
 com-spring-boot-starter-mq： 集成 redisson 队列；  
