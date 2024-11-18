@@ -4,14 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com</groupId>
+    <groupId>com.zdy.boot</groupId>
     <artifactId>com-dependencies</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
     <properties>
         <!--    业务模块    -->
-        <revision>1.0-SNAPSHOT</revision>
+        <revision>1.0.0-SNAPSHOT</revision>
+        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
         <!--    java 模块    -->
         <caffeine.version>3.1.8</caffeine.version>
         <commons-lang3.version>3.11</commons-lang3.version>
@@ -61,7 +62,6 @@
         <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
         <qiniu-sdk.version>7.15.0</qiniu-sdk.version>
         <!--    map对象转换    -->
-        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
     </properties>
 
@@ -69,42 +69,42 @@
         <!--    业务模块    -->
         <dependencies>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-base</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-auth</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-mybatis</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-pay</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-sequence</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-encryptable</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-mq</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-rabbitmq</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -115,7 +115,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>provided</scope>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
             <dependency>
@@ -684,7 +683,6 @@
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
             </releases>
         </repository>
         <repository>
@@ -693,43 +691,24 @@
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </snapshots>
-        </repository>
-        <!-- sonatype -->
-        <repository>
-            <id>oss-sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/staging</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
             </snapshots>
         </repository>
     </repositories>
-    <!-- pluginRepositories -->
-    <pluginRepositories>
-        <!-- aliyun -->
-        <pluginRepository>
-            <id>public</id>
-            <url>https://maven.aliyun.com/repository/central</url>
-        </pluginRepository>
-    </pluginRepositories>
+
     <!--  distributionManagement  -->
     <distributionManagement>
         <snapshotRepository>
             <name>Snapshot Repository</name>
             <id>2484675-snapshot-z6WFqC</id>
             <url>https://packages.aliyun.com/maven/repository/2484675-snapshot-z6WFqC</url>
-            <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
         <repository>
             <name>Release Repository</name>
             <id>2484675-release-JOUYUf</id>
             <url>https://packages.aliyun.com/maven/repository/2484675-release-JOUYUf</url>
-            <uniqueVersion>true</uniqueVersion>
         </repository>
     </distributionManagement>
+
     <build>
         <plugins>
             <!-- 统一 revision 版本 -->

@@ -3,14 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com</groupId>
-        <artifactId>com-java-starter-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+
+    <groupId>com.zdy.boot</groupId>
     <artifactId>com</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
 
     <modules>
         <module>com-dependencies</module>
@@ -18,14 +16,24 @@
     </modules>
 
     <properties>
-        <revision>1.0-SNAPSHOT</revision>
+        <revision>1.0.0-SNAPSHOT</revision>
         <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <lombok.version>1.18.30</lombok.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <!--    编译版本    -->
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com</groupId>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-dependencies</artifactId>
                 <version>${revision}</version>
                 <type>pom</type>
@@ -42,7 +50,6 @@
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
             </releases>
         </repository>
         <repository>
@@ -51,52 +58,65 @@
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </snapshots>
-        </repository>
-        <!-- sonatype -->
-        <repository>
-            <id>oss-sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/staging</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
             </snapshots>
         </repository>
     </repositories>
-    <!-- pluginRepositories -->
-    <pluginRepositories>
-        <!-- aliyun -->
-        <pluginRepository>
-            <id>public</id>
-            <url>https://maven.aliyun.com/repository/central</url>
-        </pluginRepository>
-    </pluginRepositories>
     <!--  distributionManagement  -->
     <distributionManagement>
         <snapshotRepository>
             <name>Snapshot Repository</name>
             <id>2484675-snapshot-z6WFqC</id>
             <url>https://packages.aliyun.com/maven/repository/2484675-snapshot-z6WFqC</url>
-            <uniqueVersion>true</uniqueVersion>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
         </snapshotRepository>
         <repository>
             <name>Release Repository</name>
             <id>2484675-release-JOUYUf</id>
             <url>https://packages.aliyun.com/maven/repository/2484675-release-JOUYUf</url>
-            <uniqueVersion>true</uniqueVersion>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
         </repository>
     </distributionManagement>
+
     <build>
+        <pluginManagement>
+            <plugins>
+                <!-- maven-surefire-plugin 插件，运行单元测试 -->
+                <!-- 如使用 Junit 5版本，需要版本大于 3.0.X+ -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <!-- maven-compiler-plugin 插件，解决 spring-boot-configuration-processor + Lombok + MapStruct 组合 -->
+                <!-- https://stackoverflow.com/questions/33483697/re-run-spring-boot-configuration-annotation-processor-to-update-generated-metada -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-configuration-processor</artifactId>
+                                <version>${spring-boot.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>flatten-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <!-- 统一 revision 版本 -->
             <plugin>
@@ -121,6 +141,20 @@
                         </goals>
                         <id>flatten.clean</id>
                         <phase>clean</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-source</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
