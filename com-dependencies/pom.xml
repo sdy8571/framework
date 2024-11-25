@@ -75,6 +75,11 @@
             </dependency>
             <dependency>
                 <groupId>com.zdy.boot</groupId>
+                <artifactId>com-spring-boot-starter-banner</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-auth</artifactId>
                 <version>${revision}</version>
             </dependency>

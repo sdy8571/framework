@@ -23,6 +23,7 @@
         <module>com-spring-boot-starter-tenant</module>
         <module>com-spring-boot-starter-mq</module>
         <module>com-spring-boot-starter-rabbitmq</module>
+        <module>com-spring-boot-starter-banner</module>
     </modules>
 
 </project>
