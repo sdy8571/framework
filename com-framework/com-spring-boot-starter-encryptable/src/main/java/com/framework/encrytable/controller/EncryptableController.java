@@ -1,7 +1,7 @@
 package com.framework.encrytable.controller;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.framework.base.pojo.Result;
+import com.framework.common.pojo.Result;
 import com.framework.encrytable.encrypt.ImplEncryptablePropertyResolver;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

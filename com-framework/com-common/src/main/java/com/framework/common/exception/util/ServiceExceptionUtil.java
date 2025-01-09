@@ -1,8 +1,8 @@
-package com.framework.base.exception.util;
+package com.framework.common.exception.util;
 
-import com.framework.base.exception.ErrorCode;
-import com.framework.base.exception.GlobalErrorCodeConstants;
-import com.framework.base.exception.ServiceException;
+import com.framework.common.constatnts.GlobalErrorCodeConstants;
+import com.framework.common.exception.ServiceException;
+import com.framework.common.pojo.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;

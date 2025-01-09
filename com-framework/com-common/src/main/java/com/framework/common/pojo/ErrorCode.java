@@ -1,4 +1,4 @@
-package com.framework.base.exception;
+package com.framework.common.pojo;
 
 import lombok.Data;
 

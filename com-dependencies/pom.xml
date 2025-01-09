@@ -70,6 +70,11 @@
         <dependencies>
             <dependency>
                 <groupId>com.zdy.boot</groupId>
+                <artifactId>com-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-base</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -111,6 +116,16 @@
             <dependency>
                 <groupId>com.zdy.boot</groupId>
                 <artifactId>com-spring-boot-starter-rabbitmq</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zdy.boot</groupId>
+                <artifactId>com-spring-boot-starter-socket</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zdy.boot</groupId>
+                <artifactId>com-spring-boot-starter-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -241,6 +256,12 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml-schemas</artifactId>
                 <version>${poi-schemas.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/io.netty/netty-common -->
             <dependency>
@@ -647,6 +668,12 @@
                 <groupId>org.camunda.bpm.springboot</groupId>
                 <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
                 <version>${camunda.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-cache -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
 
 

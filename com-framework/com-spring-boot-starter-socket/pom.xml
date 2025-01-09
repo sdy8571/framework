@@ -9,37 +9,33 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>com-spring-boot-starter-mq</artifactId>
-
-    <properties>
-    </properties>
+    <artifactId>com-spring-boot-starter-socket</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.zdy.boot</groupId>
+            <artifactId>com-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zdy.boot</groupId>
             <artifactId>com-spring-boot-starter-redis</artifactId>
         </dependency>
+        <!-- Spring 核心 -->
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.redisson</groupId>
-                    <artifactId>redisson-spring-data-32</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!-- spring boot 配置所需依赖 -->
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-data-27</artifactId>
-            <version>3.30.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <!--    netty 配置    -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>

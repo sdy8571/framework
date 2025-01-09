@@ -6,24 +6,22 @@
 package com.framework.base.aspect;
 
 import cn.hutool.crypto.SecureUtil;
-import com.framework.base.exception.GlobalErrorCodeConstants;
-import com.framework.base.pojo.Result;
 import com.framework.base.annotation.NotRepeatSubmit;
 import com.framework.base.util.RequestUtils;
+import com.framework.common.constatnts.GlobalErrorCodeConstants;
+import com.framework.common.pojo.Result;
+import com.framework.redis.core.cache.CacheString;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 @Aspect
 @Component
@@ -33,9 +31,6 @@ public class NotRepeatSubmitAspect {
     private static final String NAME_LOCAL = "local";
     private static final String NAME_REDIS = "redis";
     private static final Map<String, Long> lockMap;
-
-    @Resource
-    private StringRedisTemplate stringRedisTemplate;
 
     static {
         lockMap = new HashMap<>(6);
@@ -68,10 +63,10 @@ public class NotRepeatSubmitAspect {
                 return Result.error(GlobalErrorCodeConstants.TOO_MANY_REQUESTS);
             }
         } else if (NAME_REDIS.equals(type)) {
-            if (Boolean.TRUE.equals(stringRedisTemplate.hasKey(reqMd5))) {
+            if (CacheString.hasKey(reqMd5)) {
                 return Result.error(GlobalErrorCodeConstants.TOO_MANY_REQUESTS);
             } else {
-                stringRedisTemplate.opsForValue().set(reqMd5, reqMd5, expire, TimeUnit.SECONDS);
+                CacheString.set(reqMd5, reqMd5, expire);
             }
         }
         return proceedingJoinPoint.proceed();

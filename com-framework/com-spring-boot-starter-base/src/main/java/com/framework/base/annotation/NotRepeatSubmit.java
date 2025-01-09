@@ -17,11 +17,11 @@ public @interface NotRepeatSubmit {
     /**
      * 防重时间 默认 3 秒
      */
-    long value() default 3000;
+    long value() default 3;
 
     /**
-     * 防重方式 local-内存，redis-缓存 默认 local
+     * 防重方式 local-内存，redis-缓存 默认 redis
      */
-    String type() default "local";
+    String type() default "redis";
 
 }

@@ -1,4 +1,4 @@
-package com.framework.base.exception;
+package com.framework.common.enums;
 
 /**
  * SysCodeEnum
@@ -19,6 +19,7 @@ public enum SysCodeEnum {
     SRC_DATA_EXIST_ERROR("10004", "上级数据不存在"),
     LEVEL_ERROR("10005", "上下级数据错误"),
     PARAMETER_ERROR("10006", "参数未配置"),
+    RESOURCE_OBJ_IS_NULL("10007", "资源对象{}为空"),
 
     ;
     private String code;

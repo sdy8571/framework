@@ -1,4 +1,4 @@
-package com.framework.base.constants;
+package com.framework.common.constatnts;
 
 import java.util.Objects;
 

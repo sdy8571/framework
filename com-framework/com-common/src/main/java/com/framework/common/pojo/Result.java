@@ -1,9 +1,7 @@
-package com.framework.base.pojo;
+package com.framework.common.pojo;
 
-import com.framework.base.exception.GlobalErrorCodeConstants;
+import com.framework.common.constatnts.GlobalErrorCodeConstants;
 import lombok.Data;
-import org.springframework.util.Assert;
-import com.framework.base.exception.ErrorCode;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -47,7 +45,9 @@ public class Result<T> implements Serializable {
 	}
 
 	public static <T> Result<T> error(Integer code, String message) {
-		Assert.isTrue(!GlobalErrorCodeConstants.SUCCESS.getCode().equals(code), "code 必须是错误的！");
+		if (GlobalErrorCodeConstants.SUCCESS.getCode().equals(code)) {
+			throw new IllegalArgumentException("code 不能是200，必须是错误的！");
+		}
 		Result<T> result = new Result<>();
 		result.code = code;
 		result.msg = message;

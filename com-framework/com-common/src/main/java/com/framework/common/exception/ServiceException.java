@@ -1,5 +1,6 @@
-package com.framework.base.exception;
+package com.framework.common.exception;
 
+import com.framework.common.pojo.ErrorCode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -30,11 +31,6 @@ public final class ServiceException extends RuntimeException {
     public ServiceException(ErrorCode errorCode) {
         this.code = errorCode.getCode();
         this.message = errorCode.getMsg();
-    }
-
-    public ServiceException(SysCodeEnum sysCode) {
-        this.code = Integer.valueOf(sysCode.getCode());
-        this.message = sysCode.getDesc();
     }
 
     public ServiceException(Integer code, String message) {

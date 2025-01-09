@@ -1,5 +1,7 @@
-package com.framework.base.exception;
+package com.framework.common.constatnts;
 
+
+import com.framework.common.pojo.ErrorCode;
 
 /**
  * @author shen_dy@halcyonz.com
@@ -20,4 +22,6 @@ public interface GlobalErrorCodeConstants {
 	ErrorCode REPEATED_REQUESTS = new ErrorCode(900, "重复请求，请稍后重试");
 	ErrorCode DEMO_DENY = new ErrorCode(901, "演示模式，禁止写操作");
 	ErrorCode UNKNOWN = new ErrorCode(999, "未知错误");
+	ErrorCode IS_NULL = new ErrorCode(101, "资源对象为空");
+	ErrorCode IS_BLANK = new ErrorCode(102, "字符串对象为空");
 }

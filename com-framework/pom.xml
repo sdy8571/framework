@@ -24,6 +24,9 @@
         <module>com-spring-boot-starter-mq</module>
         <module>com-spring-boot-starter-rabbitmq</module>
         <module>com-spring-boot-starter-banner</module>
+        <module>com-spring-boot-starter-socket</module>
+        <module>com-common</module>
+        <module>com-spring-boot-starter-redis</module>
     </modules>
 
 </project>

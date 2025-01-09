@@ -1,8 +1,8 @@
 package com.framework.base.exception.handle;
 
-import com.framework.base.exception.GlobalErrorCodeConstants;
-import com.framework.base.exception.ServiceException;
-import com.framework.base.pojo.Result;
+import com.framework.common.constatnts.GlobalErrorCodeConstants;
+import com.framework.common.exception.ServiceException;
+import com.framework.common.pojo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindException;
